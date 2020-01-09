@@ -4,6 +4,9 @@ version = "0.1.0"
 authors = ["streicher <shumenda@gmx.de>"]
 edition = "2018"
 
+[target.aarch64-elf]
+rustflags = ["g"]
+
 [build-dependencies]
 cc = "1.0"
 

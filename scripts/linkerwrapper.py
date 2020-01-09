@@ -33,7 +33,7 @@ def main():
                 f.write(cmd + '\n')
     proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,
             stderr=subprocess.PIPE)
-    out = '\n'.join([x for x in proc.communicate() if x]).strip()
+    out = '\n'.join([x.decode(sys.getdefaultencoding()) for x in proc.communicate() if x]).strip()
     ret = proc.wait()
     if ret != 0 or out:
         print('ret: {ret}, out: {out}')
