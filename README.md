@@ -21,15 +21,15 @@ are on Debian or a derivative such as Ubuntu/Mint, execute:
 
     sudo apt install llvm lld clang build-essential qemu-system-arm
 
-Then install `Xargo` which will build the core crate for aarch64 for us:
+Then install `cargo-xbuild` which will build the core crate for aarch64:
 
-     cargo install xargo
+     cargo install cargo-xbuild
 
 Development
 -----------
 
-It seems as if a few features for customising Cargo were missing and therefore
-development should happen using `make clean`, `make` and `make qemu`. When using
-`make qemu DEBUG=1`, QEMU is spawned with an open socket for GDB. Use
+For convenience, a Makefile is used to invoke cargo-xbuild and qemu. Use `make`
+for building and `make qemu` for running the kernel.
+Using `make qemu DEBUG=1`, QEMU is spawned with an open socket for GDB. Use
 [scripts/kernel.gdb](scripts/kernel.gdb) to attach to it.
 
